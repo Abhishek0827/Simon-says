@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon Says</title>
+    <link rel="shortcut icon" href="images.png" type="image/x-icon">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+      h1 {
+        margin-top: 50px;
+      }
+      h2 {
+        height: 80px;
+      }
+      .mobileText {
+        display: none;
+        justify-content: center;
+      }
+      #gameBody {
+        position: relative;
+        max-width: 450px;
+        height:450px;
+        margin:10px auto 50px auto;
+        display: flex;
+        align-items: center;
+        background-image: url("bg.webp");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .main-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto auto;
+        place-content: center;
+        gap: 50px;
+        position: absolute;
+      }
+      .btn {
+        height: 200px;
+        width: 200px;
+        border: 7px solid rgba(0, 0, 0, 0.505);
+        border-radius: 20px;
+      }
+      .red {
+        background-color: #f00b45;
+      }
+      .peach {
+        background-color: #d95980;
+      }
+      .blue {
+        background-color: #819ff9;
+      }
+      .green {
+        background-color: #63aac0;
+      }
+      .flash {
+        background-color: wheat;
+      }
+      .flash2 {
+        background-color: rgb(217, 195, 109);
+      }
+      #gameBody>div:last-of-type{
+        position: absolute;
+        height: 50px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .mobileStartBtn {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        background-color: red;
+        border: none;
+        display: none;
+      }
+      @media screen and (max-width: 500px) {
+        h2:first-of-type {
+          display: none;
+        }
+        .mobileText {
+          display: flex;
+        }
+        #gameBody {
+          width: 95%;
+          height:350px;
+        }
+        .mobileStartBtn {
+          display: flex;
+        }
+        .main-container{
+            gap:70px;
+        }
+        .btn {
+          width: 150px;
+          height: 150px;
+        }
+      }
+      @media screen and (max-width: 300px) {
+        .btn {
+          width: 100px;
+          height: 100px;
+        }
+        .mobileStartBtn {
+        height:60px;
+        width: 60px;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <h1>SIMON SAYS</h1>
+    <h2>Click any button to start</h2>
+    <h2 class="mobileText">Press the red button to start</h2>
+    <div id="gameBody">
+      <div class="main-container">
+        <button class="btn red" id="red">1</button>
+        <button class="btn peach" id="peach">2</button>
+        <button class="btn blue" id="blue">3</button>
+        <button class="btn green" id="green">4</button>
+      </div>
+      <div>
+        <button class="mobileStartBtn"></button>
+      </div>
+    </div>
+    <div id="note">
+      Click the flashed button at the end after following the previous pattern.
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
